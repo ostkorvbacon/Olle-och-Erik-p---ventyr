@@ -7,6 +7,7 @@ public class Breakoutgame extends Frame
 	private static Ball _ball;
 	private static Background _background;
 	private static Bat _bat;
+	private static Edges _edges;
 	
 	public Breakoutgame()
 	{
@@ -17,6 +18,7 @@ public class Breakoutgame extends Frame
 
 
 		_background = new Background();
+		_edges = new Edges();
 		for(int i=0; i<BNUM1; i++)
 		{
 			_brickArr1[i] = new brick((i*50)+1,25);
