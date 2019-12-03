@@ -3,7 +3,6 @@ import wheels.users.Rectangle;
 public class Edges
 {
 	static final int GIRTH = 1, LENGHT = 700;
-
 	private Rectangle _edgeleft, _edgeright, _edgeupp, _edgedown;
 	
 	public Edges()
