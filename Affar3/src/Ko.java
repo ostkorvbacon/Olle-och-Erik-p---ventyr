@@ -8,10 +8,6 @@ public class Ko
 	private JList _ko;
 	public Ko() 
 	{
-		_ko = new JList(new DefaultListModel());	
-		
-	}
-
-	
-	
+		_ko = new JList(new DefaultListModel());			
+	}	
 }
