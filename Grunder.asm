@@ -6,7 +6,7 @@
 #addi $t1,$t1,5
 #sub $t1,$t1,11
 
-#5. jämför om värdet i $a0< det i $ $t1 och påverkar värden i andra register beroende på resultatet. 
+#5. Summerar utta tal upp till värdet i $a0
 #addi $t0, $zero, 0
 #addi $t1, $zero, 1
 #loop:
@@ -63,9 +63,126 @@
 
 #13 Klart inte värt att spara
 
-#14 kom tillbaka till
+#14,15 
+
+#.data
+#tal: .word 0
+
+#.text
+
+#add $t1,$t1,17
+#add $t2,$t2,22
+#sw $t1,tal
+#sw $t2,tal+4
+#lw $a1,tal
+#lw $a2,tal+4
+
+#add $a1,$a1,$a2
+#sw $a1,tal+8
+
+#add $t3,$zero,0
+
+#loop:
+#bge $t3,3,end  # hoppar till end om t3 >= 3
+#add $t4,$t3,$t3  #bestämmer förtjutningen i minnet jmf med tal för att komma åt rätt adresser för varje varv 0->0,1->+44,2->+8
+#add $t4,$t4,$t4
+#lw $a1,tal($t4) 
+#add $a1,$a1,1
+#sw $a1,tal($t4)
+#add $t3,$t3,1  # ökar iterationsvariabeln
+#j loop
+
+#end:
+
+#16
+.data
+text1: .asciiz "first:  "
+
+text2: .asciiz "second:  "
+
+text3: .asciiz "Largest of "
+
+text4: .asciiz " and "
+
+text5: .asciiz " is: "
+
+.text
+.globl max
+
+.globl main
+
+
+main:
+
+li $v0, 4
+la $a0,text1         
+  syscall
+
+
+  
+li $v0, 6           
+  syscall
+  round.w.s $f0, $f0
+mfc1 $s0, $f0 
+
+
+li $v0, 4
+la $a0,text1         
+  syscall
+
+
+
+li $v0, 6           
+  syscall
+  round.w.s $f0, $f0
+mfc1 $s1, $f0
+
+jal max
+
+li $v0, 4
+la $a0,text3         
+  syscall
+  
+li $v0, 1
+move $a0,$s0           
+  syscall
+  
+  li $v0, 4
+la $a0,text4         
+  syscall
+  
+  li $v0, 1
+move $a0,$s1           
+  syscall
+  
+    li $v0, 4
+la $a0,text5         
+  syscall
+
+li $v0, 1
+move $a0,$s2           
+  syscall
 
 
 
 
 
+   li  $v0,10
+    syscall
+
+max:
+
+blt $s0,$s1,a
+
+j else
+
+a:
+add $s2,$s1,$zero
+j end
+
+else:
+add $s2,$s0,$zero
+
+end:
+
+jr $ra
