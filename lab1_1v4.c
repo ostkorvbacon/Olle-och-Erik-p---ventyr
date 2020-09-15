@@ -57,12 +57,16 @@ int main()
 	{
     if(pipe(pipes[i])<0)
 		{
-      printf("error");
+      printf("Pipe failiure");
 		}
 		sem_init(&semph[i],1,1000);
 	}
   p[0] = fork();
-
+	if (p[0] == -1)
+	{
+		fprintf(stderr, "Fork failure");
+		exit(EXIT_FAILURE);
+	}
   if(p[0] != 0)
   {
     for(i=0; i<(PA-1); i++)
@@ -71,6 +75,11 @@ int main()
       {
         p[i+1] = fork();
 
+				if (p[i+1] == -1)
+				{
+					fprintf(stderr, "Fork failure");
+					exit(EXIT_FAILURE);
+				}
 				if (p[i+1]==0)
 				{
 			  	pid=i+1;
