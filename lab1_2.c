@@ -13,7 +13,8 @@
 
 int i,n,bsize,tint,buffer[BUFF];
 int inde=1;
-pthread_mutex_t lock;
+sem_t prodcount; // varor producerade
+sem_t remaining; // kvarvarand utrymme i buffer
 
 void *p(void *a )
 {
@@ -21,23 +22,15 @@ void *p(void *a )
 
 	while (1)
 	{
-
-
-		if (0<inde)
-		{	for (i=0;i<bsize;i++) printf(" %d \n",buffer[i]);
-			pthread_mutex_lock(&lock);
-			printf("Data: %d konsument id: %d\n",buffer[inde],(int)pthread_self());
-
-			if (0<inde) inde--;
-			pthread_mutex_unlock(&lock);
-		}
-		else {
-
-
-		}
+		sem_wait(&prodcount);
+		for (i=0;i<bsize;i++) printf(" %d \n",buffer[i]);
+		printf("Data: %d konsument id: %d\n",buffer[inde],(int)pthread_self());
+ 		inde--;
+		sem_post(&remaining);
 
 	}
 }
+
 
 void *p2(void *a)
 {
@@ -45,31 +38,18 @@ void *p2(void *a)
 
 	while (1)
 	{
-
-
-
-	if (inde<bsize)	{
-
-
-			pthread_mutex_lock(&lock);
+			sem_wait(&remaining);
 			buffer[inde]=inde;
 			inde++;
-			pthread_mutex_unlock(&lock);
+			sem_post(&prodcount);
 			sleep(tint);
 
-
-		}
-
-
-
-		else sleep(1);
 	}
 }
 
 int main()
 {
 	pthread_t tid[NT];
-	pthread_mutex_init(&lock,NULL);
 	printf("N: ");
 	scanf("%d",&n);
 
@@ -78,12 +58,17 @@ int main()
 
 	printf("\nInterval: ");
 	scanf("%d",&tint);
-for (i=0;i<bsize+2;i++) printf(" %d \n",buffer[i]);
-	/*pthread_create(&tid[0],NULL,*p2,0);
+
+	sem_init(&prodcount, 0, 0);
+	sem_init(&remaining, 0, BUFF);
+
+	for (i=0;i<bsize+2;i++) printf(" %d \n",buffer[i]);
+
+	pthread_create(&tid[0],NULL,*p2,0);
 
 	for (i=1;i<n+1;i++) pthread_create(&tid[i],NULL,*p,0);
 
 	for (i=0;i<n+1;i++) pthread_join(tid[i],NULL);
-*/
+
 	return 0;
 }
