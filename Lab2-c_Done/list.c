@@ -23,23 +23,6 @@ struct nodeEl * cnode(struct nodeEl * head,int *size) {
 	return node1;		//Return first node
 	}
 
-//Function to print data stored in list
-//Pre:Pointer to first node
-//Post:Data Printed
-/*int skriv(struct nodeEl *head)
-
-{	
-
-	if (head!=NULL){
-		struct nodeEl *node=head;
-		printf("\n El: %d \n",node->el);
-		skriv(node->next);
-	}
-	
-	return 0;
-	}
-*/
-
 
 //Function to count number of nodes in list. Not used (Using the variable size is more efficient)but required to be here by instructions
 //Pre:Pointer to first node

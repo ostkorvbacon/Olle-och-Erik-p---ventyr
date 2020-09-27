@@ -5,7 +5,7 @@
 
 //function prototypes 
 	
-//int skriv(struct nodeEl *head);
+
 int storlek(struct nodeEl *head);
 int nysist(struct nodeEl *head,int a);
 int ny(struct nodeEl *head,int a,int pos);
