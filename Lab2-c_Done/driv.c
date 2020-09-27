@@ -23,17 +23,20 @@ void case0(struct nodeEl *head) {
 	
 	}
 	
-//Calls function in list.c to print elements in list if list exsist
+//Calls function in list.c to return elements in list if list exsist and prints them
 //Pre:Pointer to first element in list
 //Post:Returns pointer to first node of created list	
 void case1(struct nodeEl *head){
 	
 	if (size==0) {
 		
-		printf(" Listan är tom");
+		printf(" List is empty");
 	}
 	
-	else skriv(head);
+	else {
+		for(int i=1;i<=size;i++) printf("\n El: %d \n",retur(head,i));
+
+		}
 	
 	}
 	
@@ -42,7 +45,7 @@ void case1(struct nodeEl *head){
 //Post:Prints number of nodes in list 
 void case2 (){
 	
-	printf(" Antalet element i listan är: %d\n",size);
+	printf(" Elements in list: %d\n",size);
 
 	}
 	
@@ -51,7 +54,7 @@ void case2 (){
 //Post:Node addet to end of list, size increased by 1. Returns pointer to first element
 struct nodeEl *case3(struct nodeEl *head){
 	
-	printf("Värde att lagra: ");
+	printf(" Int to store: ");
 	scanf("%d",&d1);
 	
 	if (head!=NULL) nysist(head,d1); //Diferent functions called depending if the list is empty or not
@@ -73,7 +76,7 @@ struct nodeEl *case3(struct nodeEl *head){
 //Post:Node added to list, size increased by 1. Returns pointer to first element
 struct nodeEl * case4(struct nodeEl *head){
 			
-		printf(" Värde att lagra: ");		
+		printf(" Int to store: ");		
 		scanf("%d",&d1);
 		printf(" Position: ");
 		scanf("%d",&d2);
@@ -89,7 +92,7 @@ struct nodeEl * case4(struct nodeEl *head){
 			return head;
 		}
 			
-		else printf("\n Ogiltig position");
+		else printf("\n Illegal position");
 		return head;
 	
 	}
@@ -100,15 +103,15 @@ struct nodeEl * case4(struct nodeEl *head){
 struct nodeEl * case5(struct nodeEl *head){
 	
 			if (size==0) {					//Checks if list is empty
-					printf("listan tom");
+					printf("List empty");
 					return NULL;
 				}
-			printf(" Värde ta bort: ");		
+			printf(" Int to remove: ");		
 			scanf("%d",&d1);
 			
 			if (sok(head,d1)==0) {
 				
-				printf(" Talet saknas");	//If not found do nothing and alert user
+				printf(" Int not in list");	//If not found do nothing and alert user
 				return head;
 			}
 			
@@ -135,10 +138,10 @@ struct nodeEl * case5(struct nodeEl *head){
 struct nodeEl * case6(struct nodeEl *head){
 	
 	if (size==0) {
-		printf(" listan tom"); //Checks if list is empty
+		printf(" list empty"); //Checks if list is empty
 		return NULL;
 	}
-	printf(" Position att ta bort: ");
+	printf(" Position to remove: ");
 	scanf("%d",&d1);						//Function in list.c called depends on position
 	
 	if (d1<=size && d1!=1) {
@@ -152,7 +155,7 @@ struct nodeEl * case6(struct nodeEl *head){
 			return head;
 	}
 			
-	else printf(" Ogiltig position");  
+	else printf(" Illegal position");  
 	
 	return head;
 	}
@@ -205,7 +208,7 @@ void case11(struct nodeEl *head){
 //Post:Start address printed
 void case12(struct nodeEl *head){
 	
-	printf(" Startadress: %ld\n",(long)&head);
+	printf(" Start address: %ld\n",(long)&head);
 	
 	}
 

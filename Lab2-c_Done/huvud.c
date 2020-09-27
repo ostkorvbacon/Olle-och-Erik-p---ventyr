@@ -7,11 +7,11 @@ struct nodeEl *head=NULL; //Declare headand and set it to NULL as per instructio
 int val=42; 			//Declare val set it to an arbritary value!=0 to ensure the code in while is run at least once
 head=start(head);		//Calls start() and saves a pointer to created list in head	
 
-printf(" 0:Avsluta\n 1:Skriv ut listan\n 2:Skriv ut storlek\n 3:Lägg till sist\n 4:Lägg till på valfri plats\n 5:Ta bort givet tal\n 6:Ta bort på given plats\n 7:Töm listan\n 8:Vänd listan\n 9:Skifta ett steg åt vänster(första sist)\n 10:Skifta ett steg åt höger(sista först)\n 11:Sortera (lägsta först)\n 12:Skriv ut startadress\n");
+printf(" 0:Exit\n 1:Print list\n 2:Print size of list\n 3:Add last\n 4:Add at position\n 5:Remove an int\n 6:Remove a position\n 7:Empty list\n 8:Invert list\n 9:Skift left\n 10:Skift right\n 11:Sort\n 12:Print start address\n");
 
 while (val!=0){
 	
-	printf("\n Gör ditt val: ");
+	printf("\n Choose: ");
 	scanf("%d",&val);
 
 	switch (val) {  //Menu with functins that execute the users choice
@@ -96,7 +96,7 @@ while (val!=0){
 			
 		default:
 			
-			printf("\n Ogiltig input\n");
+			printf("\n Illegal input\n");
 	}
 }
 

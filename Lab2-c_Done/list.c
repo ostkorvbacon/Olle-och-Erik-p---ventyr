@@ -26,7 +26,7 @@ struct nodeEl * cnode(struct nodeEl * head,int *size) {
 //Function to print data stored in list
 //Pre:Pointer to first node
 //Post:Data Printed
-int skriv(struct nodeEl *head)
+/*int skriv(struct nodeEl *head)
 
 {	
 
@@ -38,7 +38,7 @@ int skriv(struct nodeEl *head)
 	
 	return 0;
 	}
-
+*/
 
 
 //Function to count number of nodes in list. Not used (Using the variable size is more efficient)but required to be here by instructions
@@ -184,7 +184,7 @@ int sok2(struct nodeEl *head,int a){
 	
 	}
 
-//Returns int in node at given position. Not used but required to be here by instructions
+//Returns int in node at given position.
 //Pre: Pointer to linked list, position of node in list 
 //Post:Returns int stored in node at position
 int retur(struct nodeEl *head,int pos){
