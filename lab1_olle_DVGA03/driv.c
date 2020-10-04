@@ -23,7 +23,7 @@ void case4(node *head)
 head = addFri(head);
 }
 
-case5(node *head)
+void case5(node *head)
 {
 head = bort(head);
 }

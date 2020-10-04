@@ -4,6 +4,7 @@
 
 int main()
 {
+  int n = 4;
   int val;
   node * head = NULL;
   head = startList(n);
@@ -16,15 +17,15 @@ int main()
       case 1:  case1(head); break;
       case 2:  case2(head); break;
       case 3:  case3(head); break;
-      case 4:  case1(head); break;
-      case 5:  case2(head); break;
-      case 6:  case3(head); break;
-      case 7:  case1(head); break;
-      case 8:  case2(head); break;
-      case 9:  case3(head); break;
-      case 10: case1(head); break;
-      case 11: case2(head); break;
-      case 12: case3(head); break;
+      case 4:  case4(head); break;
+      case 5:  case5(head); break;
+      case 6:  case6(head); break;
+      case 7:  case7(head); break;
+      case 8:  case8(head); break;
+      case 9:  case9(head); break;
+      case 10: case10(head); break;
+      case 11: case11(head); break;
+      case 12: case12(head); break;
       case 0:  case0(head); break;
       default: printf("Invalid input val är %d \n", val);
     }

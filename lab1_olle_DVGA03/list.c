@@ -131,7 +131,6 @@ node *bortEl(node *head, int j)
   node * tempH1 = head;
   node * tempH2 = head;
   node * tempH3 = head;
-  printf("position %d \n", j);
 
   if(j == 1)
   {
@@ -204,7 +203,7 @@ node *vandList(node *head)
   if( testList(head) == 0)
     return head;
   node *temp1 = NULL;
-  node *tempH  = head;
+  node *tempH = head;
   node *temp2 = NULL;
   while (tempH != NULL)
   {

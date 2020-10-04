@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "node.h"
+
 
 void skrivList(node *head);
 int listStor(node *head);
