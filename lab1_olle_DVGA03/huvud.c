@@ -14,17 +14,17 @@ int main()
     val = fval();
     switch (val)
     {
-      case 1:  case1(head); break;
-      case 2:  case2(head); break;
-      case 3:  case3(head); break;
-      case 4:  case4(head); break;
-      case 5:  case5(head); break;
-      case 6:  case6(head); break;
-      case 7:  case7(head); break;
-      case 8:  case8(head); break;
-      case 9:  case9(head); break;
-      case 10: case10(head); break;
-      case 11: case11(head); break;
+      case 1: case1(head); break;
+      case 2: case2(head); break;
+      case 3: head = case3(head); break;
+      case 4: head = case4(head); break;
+      case 5: head = case5(head); break;
+      case 6: head = case6(head); break;
+      case 7: head = case7(head); break;
+      case 8: head = case8(head); break;
+      case 9: head = case9(head); break;
+      case 10: head = case10(head); break;
+      case 11: head = case11(head); break;
       case 12: case12(head); break;
       case 0:  case0(head); break;
       default: printf("Invalid input val är %d \n", val);

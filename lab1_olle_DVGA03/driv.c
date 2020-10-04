@@ -13,49 +13,58 @@ void case2(node *head)
   printf("Listan har %d noder.\n", n);
 }
 
-void case3(node *head)
+node *case3(node *head)
 {
 head = addSist(head);
+return head;
 }
 
-void case4(node *head)
+node *case4(node *head)
 {
 head = addFri(head);
+return head;
 }
 
-void case5(node *head)
+node *case5(node *head)
 {
 head = bort(head);
+return head;
 }
 
-void case6(node *head)
+node *case6(node *head)
 {
 head = bortPlats(head);
+return head;
 }
 
-void case7(node *head)
+node *case7(node *head)
 {
 head = tomLista(head);
+return head;
 }
 
-void case8(node* head)
+node *case8(node* head)
 {
 head = vandList(head);
+return head;
 }
 
-void case9(node *head)
+node *case9(node *head)
 {
 head = skiftV(head);
+return head;
 }
 
-void case10(node *head)
+node *case10(node *head)
 {
 head = skiftH(head);
+return head;
 }
 
-void case11(node *head)
+node *case11(node *head)
 {
 head = sortList(head);
+return head;
 }
 
 void case12(node *head)
