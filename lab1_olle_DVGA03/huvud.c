@@ -4,14 +4,14 @@
 
 int main()
 {
-  int n = 4;
+  int n = 4; // Value for amount of nodes at start of program.
   int val;
-  node * head = NULL;
-  head = startList(n);
-  meny();
-  do
+  node * head = NULL; // Declares head.
+  head = startList(n); // List is created at start of program to make for easier use.
+  meny(); // Funktion that prints the menu options.
+  do // Loop that executes funktions based on users input.
   {
-    val = fval();
+    val = fval(); // Funktion that gets the users input.
     switch (val)
     {
       case 1: case1(head); break;
@@ -29,12 +29,13 @@ int main()
       case 0:  case0(head); break;
       default: printf("Invalid input val är %d \n", val);
     }
-  }while(val != 0);
+  }while(val != 0); // program is ended if val is 0 wich is the number in the
+  // menu that says exit.
 
     return 0;
 }
 
-node *startList(int n)
+node *startList(int n) // Funktion for creating n amount of nodes and linking them.
 {
   int i = 0;
   node * head2 = NULL;

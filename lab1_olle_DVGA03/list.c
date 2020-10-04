@@ -1,6 +1,9 @@
 #include "list.h"
 #include "node.h"
 
+// Gets the value from a node and prints it, then moves on to next node,
+// this is repeated untill the next node does not exist and
+// we have reached the end of the list.
 void skrivList(node *head)
 {
   node * temp = head;
@@ -13,6 +16,10 @@ void skrivList(node *head)
   printf("\n");
 }
 
+// Adds +1 to the variable "n" then moves on to next node,
+// this is repeated untill the next node does not exist and
+// we have reached the end of the list.
+// The function then returns "n" wich is the number of nodes in our list.
 int listStor(node *head)
 {
   int n = 0;
@@ -25,13 +32,15 @@ int listStor(node *head)
   return n;
 }
 
-node *addSist(node *head)
+// Creates a node and places our value in it,
+// then loops untill we fins the last node
+// and then attaches our created node to the last node.
+// Making the created node the new last node.
+node *addSist(node *head, int in)
 {
   node * temp = NULL;
   temp = (node*)malloc(sizeof(node));
-  printf("Skriv in element: ");
-  scanf("%d", &temp->el);
-  printf("\n");
+  temp->el = in;
   if(head == NULL)
   {
     return temp;
@@ -46,19 +55,19 @@ node *addSist(node *head)
   return head;
 }
 
-node *addFri(node *head)
+// Creates a new node that is to be placed in a spot specified by the user,
+// places the value input by the user in our new node and then loops
+// several times to find the two places around our new node.
+// Then atatches the new node to those two newly found nodes.
+node *addFri(node *head, int in, int in2)
 {
 
   int k, i=0;
   node * temp = NULL;
   temp = (node*)malloc(sizeof(node));
-  printf("Skriv in element: ");
-  scanf("%d", &temp->el);
-  printf("\n");
-  printf("Skriv in en position: ");
-  scanf("%d", &k);
-  printf("\n");
 
+  temp->el = in;
+  k = in2;
   if(k < 1 || k > listStor(head)+1)
   {
     printf("Postitionen finns inte.\n");
@@ -91,25 +100,14 @@ node *addFri(node *head)
 
 }
 
-node *bort(node *head)
-{
-  int j;
-  j = hittaEl(head);
-  if(j == 0)
-  {
-    printf("Värdet finns inte i listan\n");
-    return head;
-  }
-  return bortEl(head, j);
-}
-
-int hittaEl(node *head)
+// Finds a node with a specific value, then returns the place
+// of that node within the linked list.
+int hittaEl(node *head, int in)
 {
   node * temp = head;
   int k, i=0, j=0;
-  printf("Skriv in elementet du vill ta bort: ");
-  scanf("%d", &k);
-  printf("\n");
+
+  k = in;
   while(temp != NULL)
   {
     i++;
@@ -124,6 +122,7 @@ int hittaEl(node *head)
   return 0;
 }
 
+// Removes a node on a specific place within the linked list.
 node *bortEl(node *head, int j)
 {
   int i = 0;
@@ -163,22 +162,7 @@ node *bortEl(node *head, int j)
   return temp;
 }
 
-node *bortPlats(node *head)
-{
-  int k;
-  node * temp = head;
-  printf("Skriv in en position: ");
-  scanf("%d", &k);
-  printf("\n");
-  if(k > 0 && k <= listStor(temp))
-    return bortEl(temp, k);
-  else
-  {
-    printf("Positionen finns inte.\n");
-    return temp;
-  }
-}
-
+// Removes every node and frees the memory used by every node.
 node *tomLista(node *head)
 {
   if(listStor(head) == 0)
@@ -198,6 +182,7 @@ node *tomLista(node *head)
   return NULL;
 }
 
+// Reverses the order of the list.
 node *vandList(node *head)
 {
   if( testList(head) == 0)
@@ -216,6 +201,8 @@ node *vandList(node *head)
   return tempH;
 }
 
+// Removes the first node from the list
+// and then reatatches the first node to the end of the list.
 node *skiftV(node *head)
 {
   int i, k;
@@ -240,6 +227,8 @@ node *skiftV(node *head)
   return tempH;
 }
 
+// Removes the last node from the list
+// and reatatches the last node to the start of the list.
 node *skiftH(node *head)
 {
   int i, k;
@@ -262,6 +251,8 @@ node *skiftH(node *head)
   return temp1;
 }
 
+// Sorts the nodes in the list based on
+// the values of their elements in acending order.
 node *sortList(node *head)
 {
   int k, i, tempEl;
@@ -297,11 +288,14 @@ node *sortList(node *head)
   return tempH;
 }
 
+// Finds and prints the adress
+// of the first node
 void skrivAdrs(node *head)
 {
   printf("Startadressen är: %ld\n", (long)&head);
 }
 
+// A function that is used to test if the list is empy or only has 1 value.
 int testList(node *head)
 {
   if(1 > listStor(head))

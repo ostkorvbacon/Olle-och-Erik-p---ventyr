@@ -1,16 +1,17 @@
 #ifndef DRIV_H
-
 #define DRIV_H
+
+// including libraries.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "list.h"
 #include "node.h"
 
+// Declaring functions.
 node *startList(int n);
 void meny();
 int fval();
-
 void case1(node *head);
 void case2(node *head);
 node *case3(node *head);
