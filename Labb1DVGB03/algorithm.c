@@ -85,12 +85,31 @@ void QuickSort(int *a,int a2,int b)
 
 bool linear_search(const int *a, int n, int v)
 {
-	return false; // TODO: linear search
+	for (i=0;i<n;i++){
+		
+		if (a[i]==v) return true;
+		
+		}
+	
+	return false; 
+	
 }
 
 bool binary_search(const int *a, int n, int v)
 {
-	return false; // TODO: binary search
+	int low=0;
+	int high=n-1;
+	while (low<=high){
+		
+		k=(low+high)/2;
+		if (a[k]<v) low=k+1;
+		
+		else if (a[k]>v) high=k-1;
+		
+		else return true;
+	}
+	
+	return false;
 }
 
 
