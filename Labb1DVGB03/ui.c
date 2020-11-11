@@ -49,7 +49,22 @@ static void ui_menu()
 		"Menu",
 		"Exit\n",
 		"Bubble sort best case",
-		// TODO: complete menu
+		"Bubble sort worst case",
+		"Bubble sort avarege case\n",
+		"Inertion sort best case",
+		"Inertion sort worst case",
+		"Inertion sort avarege case\n",
+		"Quick sort best case",
+		"Quick sort worst case",
+		"Quick sort avarege case\n",
+		"Linear search best case",
+		"Linear search worst case",
+		"Linear search avarege case\n",
+		"Binary search best case",
+		"Binary search worst case",
+		"Binary search avarege case",
+		
+	
 	};
 
 	ui_line('=', MENU_WIDTH);
@@ -80,11 +95,91 @@ void ui_run()
 			case 'b':
 				running = false;
 				break;
-			// Bubble sort
+				
+				
+			// Bubble sort best
 			case 'c':
+			//for (int i=0;i<RESULT_ROWS;i++) result[i].time=1;
 				benchmark(bubble_sort_t, best_t, result, RESULT_ROWS);
-				printf("todo> implemenet BE + present results in FE\n");
+			//for (int i=0;i<RESULT_ROWS;i++) printf("Time: %f ",result[i].time);
 				break;
+				
+				//bubble worst 
+			case 'd':
+			
+				break;
+				
+				//bubble average 	
+			case 'e':
+				
+				break;
+				
+				
+				//insertion best
+			case 'f':
+				
+				break;
+				
+				//insertion worst
+			case 'g':
+				
+				break;
+				
+				//insertion average
+			case 'h':
+				
+				break;
+				
+				
+				//quick best
+			case 'i':
+				
+				break;
+				
+				//quick worst
+			case 'j':
+				
+				break;
+				
+				//quick average
+			case 'k':
+				
+				break;
+				
+				
+				
+				//linear best
+			case 'l':
+				
+				break;
+				
+				//linear worst
+			case 'm':
+				
+				break;
+				
+				//linear average
+			case 'n':
+				
+				break;
+				
+				
+				
+				//binary best
+			case 'o':
+				
+				break;
+				
+				//binary worst
+			case 'p':
+				
+				break;
+				
+				//binary average
+			case 'q':
+				
+				break;
+				
 			// Invalid input
 			default:
 				show_menu = false;
