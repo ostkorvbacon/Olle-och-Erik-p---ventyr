@@ -43,6 +43,13 @@ static void ui_menu_options(const char *options[], int num_options)
 	}
 }
 
+void printres(result_t *result) {
+	
+		
+	for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+	
+}
+
 static void ui_menu()
 {
 	const char *options[] = {
@@ -101,8 +108,7 @@ void ui_run()
 			case 'c':
 
 				benchmark(bubble_sort_t, best_t, result, RESULT_ROWS);
-				
-				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %f  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+				printres(result);
 
 				break;
 				
@@ -110,7 +116,7 @@ void ui_run()
 			case 'd':
 				benchmark(bubble_sort_t, worst_t, result, RESULT_ROWS);
 				
-				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %f  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
 
 				break;
 				
@@ -127,32 +133,52 @@ void ui_run()
 				
 				//insertion best
 			case 'f':
+				benchmark(insertion_sort_t,best_t,result, RESULT_ROWS);
 				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				//insertion worst
 			case 'g':
+				benchmark(insertion_sort_t,worst_t,result, RESULT_ROWS);
 				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				//insertion average
 			case 'h':
+				benchmark(insertion_sort_t,average_t,result, RESULT_ROWS);
 				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				
 				//quick best
 			case 'i':
+				benchmark(quick_sort_t,best_t,result, RESULT_ROWS);
 				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				//quick worst
 			case 'j':
+				benchmark(quick_sort_t,worst_t,result, RESULT_ROWS);
+				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				
 				break;
 				
 				//quick average
 			case 'k':
+				benchmark(quick_sort_t,average_t,result, RESULT_ROWS);
+				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				
 				break;
 				
@@ -160,33 +186,52 @@ void ui_run()
 				
 				//linear best
 			case 'l':
+				benchmark(linear_search_t,best_t,result, RESULT_ROWS);
 				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				//linear worst
 			case 'm':
+				benchmark(linear_search_t,worst_t,result, RESULT_ROWS);
 				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				//linear average
 			case 'n':
+				benchmark(linear_search_t,average_t,result, RESULT_ROWS);
 				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				
 				
 				//binary best
 			case 'o':
+				benchmark(binary_search_t,best_t,result, RESULT_ROWS);
 				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				//binary worst
 			case 'p':
+				benchmark(binary_search_t,worst_t,result, RESULT_ROWS);
 				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				//binary average
 			case 'q':
+				benchmark(binary_search_t,average_t,result, RESULT_ROWS);
+				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %e  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				
 				break;
 				
