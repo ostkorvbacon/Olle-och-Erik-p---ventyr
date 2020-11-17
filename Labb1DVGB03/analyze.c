@@ -1,45 +1,66 @@
 #define _POSIX_C_SOURCE 199309L
 #include "analyze.h"
 #include "algorithm.h"
-#include <time.h>
+/*#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>*/
 
+
+#define NUMBEL 512
+#define REP 5
 //
 // Private
 //
+
 
 //
 // Public
 //
 void benchmark(const algorithm_t a, const case_t c, result_t *buf, int n)
 {	
-	double bursttime=0;
+	double bursttime=0,times;
+	int size;
+	int arr[NUMBEL*((int)pow(2,n))];
+	int i,k;
+	time_t t;
+	clock_t start,stop;
+	
+	srand((unsigned) time(&t));
 	
 	for (int j=0;j<n;j++){
+		bursttime=0;
+		size=NUMBEL*((int)pow(2,j));
 		
-		struct timespec start,stop;
-		clock_gettime(CLOCK_REALTIME,&start);
-		
-		//Stuff
-		
-		int arr[10];
-		int i;
-		time_t t;
-		srand((unsigned) time(&t));
-		for (i=9;i>-1;i--) arr[i]=rand()%21;
-		insertion_sort(arr,10);
+		for (k=0;k<REP;k++){
+			
 
-		//end of Stuff
+			if ( c==average_t) for (i=0;i<size;i++) arr[i]=rand()%size;
+			
+			else if (c==best_t) for (i=0;i<size;i++) arr[i]=i;
+			
+			else for (i=0;i<size;i++) {arr[i]=size-i;}
+			
+			
+			start=clock();
+			//Stuff
+			bubble_sort(arr,size);
+
+			//end of Stuff
+			stop=clock();
 		
-		clock_gettime(CLOCK_REALTIME,&stop);
-		bursttime=(double)stop.tv_nsec-start.tv_nsec;
-printf("1Time: %f bTime: %f ",buf[j].time,bursttime);
-		buf[i].time=bursttime;
-printf("2Time: %f bTime: %f\n",buf[j].time,bursttime);
+			times=(stop-start)/((double)CLOCKS_PER_SEC);
+			
+			bursttime=bursttime+times;
+			//printf("times=%f \n",times);
+			
+		}
+		bursttime=bursttime/REP;
+		buf[j].time=bursttime;
+		buf[j].size=size;
 	
 	}
-	//for (int i=0;i<n;i++) printf("Time: %f bTime: %f",buf[i].time,bursttime);
+	
 
 	
 }

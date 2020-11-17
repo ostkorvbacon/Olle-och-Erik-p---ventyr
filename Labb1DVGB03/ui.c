@@ -99,18 +99,28 @@ void ui_run()
 				
 			// Bubble sort best
 			case 'c':
-			//for (int i=0;i<RESULT_ROWS;i++) result[i].time=1;
+
 				benchmark(bubble_sort_t, best_t, result, RESULT_ROWS);
-			//for (int i=0;i<RESULT_ROWS;i++) printf("Time: %f ",result[i].time);
+				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %f  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				//bubble worst 
 			case 'd':
-			
+				benchmark(bubble_sort_t, worst_t, result, RESULT_ROWS);
+				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %f  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				break;
 				
 				//bubble average 	
 			case 'e':
+			
+				benchmark(bubble_sort_t,average_t, result, RESULT_ROWS);
+				
+				for (int i=0;i<RESULT_ROWS;i++) printf("Size: %d  Time: %f  T/n: %e  T/n^2 %e  T/n^2 %e  T/log(n) %e  T/nlog(n) %e\n\n",result[i].size,result[i].time,result[i].time/result[i].size,result[i].time/pow(result[i].size,2),result[i].time/pow(result[i].size,3),result[i].time/log(result[i].size),result[i].time/(result[i].size*log(result[i].size)));
+
 				
 				break;
 				
@@ -180,11 +190,14 @@ void ui_run()
 				
 				break;
 				
+
 			// Invalid input
 			default:
 				show_menu = false;
 				ui_invalid_input();
 				break;
+		
+				
 		}
 	}
 	ui_exit();

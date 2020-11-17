@@ -3,6 +3,10 @@
 
 #define SIZE_START 512
 #define ITERATIONS 4
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 // algorithm_t defines different algorithms
 typedef enum {
